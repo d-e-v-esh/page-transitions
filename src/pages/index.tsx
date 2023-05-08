@@ -6,7 +6,7 @@ export default function Home() {
       <div className="site-container">
         <div className="site-body">
           <NavigationGap />
-          <h1>Heading</h1>
+          <h1>Home</h1>
         </div>
       </div>
     </>
