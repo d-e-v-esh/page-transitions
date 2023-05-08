@@ -21,16 +21,19 @@ export default function App({ Component, pageProps, router }: AppProps) {
               position: "fixed",
               width: "100vw",
               zIndex: 1000,
+              bottom: 0,
             }}
             transition={transitionSpringPhysics}
-            // initial={{ height: "100vh", y: "0vh" }}
-            animate={{ height: "0vh", y: "100vh" }}
-            exit={{ height: "100vh", y: "0vh" }}
+            animate={{ height: "0vh" }}
+            exit={{ height: "100vh" }}
           />
 
           {/* The entering child will wait until the exiting child has animated out */}
 
           {/* at first, the exiting child has to animate out with the old page, once that is done only then the new page can be animated in with the entering child*/}
+          {/* the exiting child will cover up the old page as it goes out to exit */}
+
+          {/* the entering child will reveal the new page */}
 
           <motion.div
             style={{
@@ -38,11 +41,11 @@ export default function App({ Component, pageProps, router }: AppProps) {
               position: "fixed",
               width: "100vw",
               zIndex: 1000,
+              top: 0,
             }}
             transition={transitionSpringPhysics}
-            initial={{ height: "100vh", y: "0vh" }}
-            animate={{ height: "100vh", y: "-100vh" }}
-            // exit={{ height: "100vh", y: "0vh" }}
+            initial={{ height: "100vh" }}
+            animate={{ height: "0vh" }}
           />
 
           <Navigation />
