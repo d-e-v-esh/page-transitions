@@ -19,29 +19,29 @@ export default function App({ Component, pageProps, router }: AppProps) {
             style={{
               backgroundColor: "blue",
               position: "fixed",
-              width: "100%",
+              width: "100vw",
               zIndex: 1000,
             }}
             transition={transitionSpringPhysics}
-            initial={{ height: "100%", y: 0 }}
-            animate={{ height: "100%", y: "-100%" }}
-            // exit={{ height: "100%", y: 0 }}
+            initial={{ height: "100vh", y: "0vh" }}
+            animate={{ height: "100vh", y: "-100vh" }}
+            // exit={{ height: "100vh", y: "0vh" }}
           />
+
           <motion.div
             style={{
               backgroundColor: "blue",
               position: "fixed",
-              width: "100%",
+              width: "100vw",
               zIndex: 1000,
             }}
             transition={transitionSpringPhysics}
-            // initial={{ height: "100%", y: 0 }}
-            animate={{ height: 0, y: "100vh" }}
-            exit={{ height: "100%", y: 0 }}
+            // initial={{ height: "100vh", y: "0vh" }}
+            animate={{ height: "0vh", y: "100vh" }}
+            exit={{ height: "100vh", y: "0vh" }}
           />
 
           <Navigation />
-
           <Component {...pageProps} />
         </motion.div>
       </AnimatePresence>
