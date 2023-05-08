@@ -13,8 +13,25 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
   return (
     <div>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <motion.div key={router.route}>
+          <motion.div
+            style={{
+              backgroundColor: "red",
+              position: "fixed",
+              width: "100vw",
+              zIndex: 1000,
+            }}
+            transition={transitionSpringPhysics}
+            // initial={{ height: "100vh", y: "0vh" }}
+            animate={{ height: "0vh", y: "100vh" }}
+            exit={{ height: "100vh", y: "0vh" }}
+          />
+
+          {/* The entering child will wait until the exiting child has animated out */}
+
+          {/* at first, the exiting child has to animate out with the old page, once that is done only then the new page can be animated in with the entering child*/}
+
           <motion.div
             style={{
               backgroundColor: "blue",
@@ -26,19 +43,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
             initial={{ height: "100vh", y: "0vh" }}
             animate={{ height: "100vh", y: "-100vh" }}
             // exit={{ height: "100vh", y: "0vh" }}
-          />
-
-          <motion.div
-            style={{
-              backgroundColor: "blue",
-              position: "fixed",
-              width: "100vw",
-              zIndex: 1000,
-            }}
-            transition={transitionSpringPhysics}
-            // initial={{ height: "100vh", y: "0vh" }}
-            animate={{ height: "0vh", y: "100vh" }}
-            exit={{ height: "100vh", y: "0vh" }}
           />
 
           <Navigation />
