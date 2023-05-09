@@ -45,7 +45,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
             }}
             transition={transitionSpringPhysics}
             initial={{ height: "100vh" }}
-            animate={{ height: "0vh" }}
+            animate={{ height: "0vh", transition: { delay: 0.5 } }}
           />
 
           <Navigation />
