@@ -11,13 +11,15 @@ export default function App({ Component, pageProps, router }: AppProps) {
     damping: 10,
   };
 
+  const transitionColor = "deepskyblue";
+
   return (
     <div>
       <AnimatePresence mode="wait" initial={false}>
         <motion.div key={router.route}>
           <motion.div
             style={{
-              backgroundColor: "red",
+              backgroundColor: transitionColor,
               position: "fixed",
               width: "100vw",
               zIndex: 1000,
@@ -37,7 +39,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
           <motion.div
             style={{
-              backgroundColor: "blue",
+              backgroundColor: transitionColor,
               position: "fixed",
               width: "100vw",
               zIndex: 1000,
@@ -45,7 +47,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
             }}
             transition={transitionSpringPhysics}
             initial={{ height: "100vh" }}
-            animate={{ height: "0vh", transition: { delay: 0.5 } }}
+            animate={{ height: "0vh", transition: { delay: 0.2 } }}
           />
 
           <Navigation />
