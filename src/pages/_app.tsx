@@ -1,10 +1,10 @@
 import Navigation from "@/components/navigation";
 import "@/styles/globals.css";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, Spring } from "framer-motion";
 import type { AppProps } from "next/app";
 
-export default function App({ Component, pageProps, router }: AppProps) {
-  const transitionSpringPhysics = {
+const App: React.FC<AppProps> = ({ Component, pageProps, router }) => {
+  const transitionSpringPhysics: Spring = {
     type: "spring",
     mass: 0.2,
     stiffness: 80,
@@ -30,13 +30,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
             exit={{ height: "100vh" }}
           />
 
-          {/* The entering child will wait until the exiting child has animated out */}
-
-          {/* at first, the exiting child has to animate out with the old page, once that is done only then the new page can be animated in with the entering child*/}
-          {/* the exiting child will cover up the old page as it goes out to exit */}
-
-          {/* the entering child will reveal the new page */}
-
           <motion.div
             style={{
               backgroundColor: transitionColor,
@@ -56,4 +49,6 @@ export default function App({ Component, pageProps, router }: AppProps) {
       </AnimatePresence>
     </div>
   );
-}
+};
+
+export default App;
